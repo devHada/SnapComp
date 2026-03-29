@@ -16,7 +16,7 @@ const CodeEditor = ({ code }) => {
       initial={{ opacity: 0, x: 40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="flex flex-col h-full bg-(--bg-primary)"
+      className="flex flex-col h-full bg-[#0f0f0f]"
     >
       <div className="px-4 py-2 border-b border-(--border-color) bg-(--bg-secondary) flex items-center justify-between">
         <span className="text-(--text-muted) text-[11px] uppercase tracking-widest">
@@ -39,7 +39,7 @@ const CodeEditor = ({ code }) => {
 
       <div className="flex-1 overflow-y-auto p-4">
         {code ? (
-          <pre className="text-xs text-(--text-primary) font-mono leading-relaxed whitespace-pre-wrap wrap-break-word">
+          <pre className="text-xs text-[#e0e0e0] font-mono leading-relaxed whitespace-pre-wrap break-words">
             {code}
           </pre>
         ) : (

@@ -21,13 +21,13 @@ const ChatBox = ({ onSend, loading, messages = [] }) => {
       initial={{ opacity: 0, x: -40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="flex flex-col h-full bg-(--bg-primary)"
+      className="flex flex-col h-full bg-(--bg-primary) overflow-hidden"
     >
       <div className="px-4 py-2 border-b border-(--border-color) text-(--text-muted) text-[11px] uppercase tracking-widest">
         Chat
       </div>
 
-      <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-4 flex flex-col gap-3"   >
         <AnimatePresence>
           {messages.map((msg, i) => (
             <motion.div
@@ -38,7 +38,7 @@ const ChatBox = ({ onSend, loading, messages = [] }) => {
               className={`flex gap-2 items-start ${msg.role === "user" ? "flex-row-reverse" : ""}`}
             >
               <div
-                className={`px-3 py-2 rounded-xl text-xs leading-relaxed max-w-[80%] text-(--text-primary) ${
+                className={`px-3 py-2 rounded-xl text-xs leading-relaxed max-w-[80%] text-(--text-primary) break-words whitespace-pre-wrap ${
                   msg.role === "user"
                     ? "bg-(--accent-dim) border border-(--accent-border) rounded-tr-none"
                     : "bg-(--bg-tertiary) border border-(--border-color) rounded-tl-none"
@@ -71,12 +71,19 @@ const ChatBox = ({ onSend, loading, messages = [] }) => {
       </div>
 
       <div className="px-4 py-3 border-t border-(--border-color) bg-(--bg-secondary) flex gap-2 items-center">
-        <input
+        <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSend()}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              handleSend();
+            }
+          }}
           placeholder="Describe your component..."
-          className="flex-1 bg-(--bg-tertiary) border border-(--border-color) rounded-lg px-3 py-2 text-xs text-(--text-primary) placeholder:text-(--text-muted) outline-none focus:border-(--accent) transition-colors"
+          rows={1}
+          style={{ resize: "none" }}
+          className="flex-1 bg-(--bg-tertiary) border border-(--border-color) rounded-lg px-3 py-2 text-xs text-(--text-primary) placeholder:text-(--text-muted) outline-none focus:border-(--accent) transition-colors overflow-hidden"
         />
         <motion.button
           onClick={handleSend}

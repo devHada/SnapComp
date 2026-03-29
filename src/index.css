@@ -25,7 +25,7 @@ body {
 .light {
   --bg-primary: #ffffff;
   --bg-secondary: #f5f5f5;
-  --bg-tertiary: #efefef;
+  --bg-tertiary: #cfadad;
   --bg-elevated: #e8e8e8;
   --border-color: #dddddd;
   --border-subtle: #eeeeee;
@@ -35,4 +35,17 @@ body {
   --accent: #ff6b2b;
   --accent-dim: #ff6b2b15;
   --accent-border: #ff6b2b55;
+}
+
+textarea {
+  field-sizing: content;
+  min-height: 32px;
+  max-height: 120px;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
 }

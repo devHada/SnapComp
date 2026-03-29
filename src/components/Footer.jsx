@@ -12,7 +12,7 @@ const Footer = () => {
         Built by <span className="text-(--accent)">devHada</span>
       </span>
       <span className="text-(--text-muted) text-xs">
-        Powered by <span className="text-(--accent)">Groq</span> ×{" "}
+        Powered by <span className="text-(--accent)">Groq</span> ×
         <span className="text-(--accent)">llama-3.3-70b</span>
       </span>
     </motion.footer>
