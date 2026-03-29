@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SnapComponent ⚡
 
 > Describe a UI component in plain English. Get production-ready React code instantly.
@@ -68,6 +67,3 @@ npm run dev
 ---
 
 Built by [devHada](https://github.com/devHada/SnapComp)
-=======
-
->>>>>>> 4f137dc5074029dff81d0c2ffdd96fc28b31eb76
